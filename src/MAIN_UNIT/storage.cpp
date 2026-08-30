@@ -1,8 +1,10 @@
 #include <vector>
 #include <stdexcept>
-#include "storage.hpp"
 #include <cstdint>
+
+#include "storage.hpp"
 #include "../utils/helpers.hpp"
+
 
 /**
  * 
@@ -15,17 +17,17 @@
  */
 Storage::Storage(uint16_t size)
 {
-    for(int i = 0; i < AMOUNT_OF_OPTIONS; i++)
+    for(uint8_t i = 0; i < AMOUNT_OF_OPTIONS; i++)
     {
         if(size == options[i])
         {
-            max_size = size;
+            memory = std::make_unique<uint8_t[]>(size);
             return;
         }
     }
 
     std::string full_options;
-    for(int i = 0; i < AMOUNT_OF_OPTIONS; i++)
+    for(uint8_t i = 0; i < AMOUNT_OF_OPTIONS; i++)
     {            
         if(i != AMOUNT_OF_OPTIONS - 1 && i != 0)
             full_options += ", ";

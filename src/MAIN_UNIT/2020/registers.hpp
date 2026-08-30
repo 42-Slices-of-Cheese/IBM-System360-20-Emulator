@@ -12,6 +12,21 @@ class PSW
  
 
     public:
+        static const uint8_t CC_ZERO = 0;
+        static const uint8_t CC_NEGATIVE = 1;
+        static const uint8_t CC_POSITIVE = 2;
+        static const uint8_t CC_OVERFLOW = 3;
+
+        static const uint8_t _ASCII_MODE = 1;
+        static const uint8_t _EBCDIC_MODE = 0;
+
+        static const uint8_t ASCII_POSITIVE = 0xA;
+        static const uint8_t ASCII_NEGATIVE = 0xB;
+        static const uint8_t EBCDIC_POSITIVE = 0xC;
+        static const uint8_t EBCDIC_NEGATIVE = 0xD;
+        static const uint8_t UNDEFINED_POSITIVE_1 = 0xE;
+        static const uint8_t UNDEFINED_POSITIVE_2 = 0xF;
+
         struct PSW_STATE 
         {
             const unsigned int RESERVED : 2 = 0b00; // Not used

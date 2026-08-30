@@ -26,9 +26,9 @@ struct RX : Instruction
 
 struct SI : Instruction
 {
+    unsigned int B1 : 4;
+    unsigned int D1 : 12;
     uint8_t I2;
-    unsigned int B2 : 4;
-    unsigned int D2 : 12;
 };
 
 struct SS : Instruction

@@ -2,11 +2,11 @@
 #define _STORAGE_H
 
 #include <cstdint>
+#include <memory>
 
 #define CPU_RESERVED_BYTES 144
 #define AMOUNT_OF_OPTIONS 4
 
-#define MAX_POSSIBLE_SIZE 16384
 
 /**
  * 
@@ -19,7 +19,7 @@ class Storage
     private:
         uint16_t max_size;
         const uint16_t options[AMOUNT_OF_OPTIONS] = {4096, 8192, 12288, 16384};
-        uint8_t memory[MAX_POSSIBLE_SIZE];
+        std::unique_ptr<uint8_t[]> memory;
         
     public:
         Storage(uint16_t size);
